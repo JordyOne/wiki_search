@@ -17,6 +17,8 @@ class SearchTermsController < ApplicationController
     @previous_search_terms = SearchTermFinder.get_uniq_with_count.map do |unique_search_term|
       SearchTermPresenter.new(term: unique_search_term[0], attempts: unique_search_term[1])
     end
+    @content = JSON.parse(WikipediaSearch.search(term: @search_term.term), symbolize: true)["query"]["search"]
+    byebug
     @new_search_term = SearchTerm.new
   end
 

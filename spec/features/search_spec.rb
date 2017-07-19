@@ -26,19 +26,24 @@ feature "Search", :type => :feature do
   context "previous searches exist" do
     scenario "User is viewing sidebar" do
       search_term_1 = SearchTerm.create(term: "Test search 1")
-      search_term_2 = SearchTerm.create(term: "Test search 2")
+      dup_term_2 = SearchTerm.create(term: "Test search 1")
       search_term_3 = SearchTerm.create(term: "Test search 3")
       search_term_4 = SearchTerm.create(term: "Test search 4")
+      expect(WikipediaSearch).to receive(:search) { JSON.generate({ "query": { "search": [{ 'snippet': '<span>response snippet</span>' }, { 'snippet': '<span>another response snippet</span>' }] } }) }
       visit search_term_path(search_term_1)
+
 
       within("#sidebar-wrapper") do
         expect(page).to have_selector(".sidebar-brand a", text: "Previous Searches")
-
-        expect(page).to have_selector("a", text: search_term_1.term)
-        expect(page).to have_selector("a", text: search_term_2.term)
-        expect(page).to have_selector("a", text: search_term_3.term)
-        expect(page).to have_selector("a", text: search_term_4.term)
+        expect(page).to have_link("#{search_term_1.term}", href: search_term_path(dup_term_2))
+        expect(page).to have_link(search_term_3.term, href: search_term_path(search_term_3))
+        expect(page).to have_link(search_term_4.term, href: search_term_path(search_term_4))
       end
+
+      within("#page-content-wrapper") do
+        expect(page).to have_selector("span", text: "response snippet")
+      end
+
     end
   end
 end
