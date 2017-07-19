@@ -11,9 +11,18 @@
       <li class="sidebar-title">
         <h4>Previous Searches</h4>
       </li>
+      <li>
+        <select name="sortby" onchange="location = this.value;">
+          <option disabled selected value>select an option</option>
+          <option value="<%= new_search_term_path(sortby: "created_at") %>">Created At</option>
+          <option value="<%= new_search_term_path(sortby: "attempts") %>"># of Attempts</option>
+          <option value="<%= new_search_term_path(sortby: "term") %>">Search Term</option>
+        </select>
+      </li>
       <% @previous_search_terms.each do |previous_search| %>
         <li>
-          <a href="<%= search_term_duplicate_path(previous_search.recent_id) %>"><%= previous_search.term %> <span><%= previous_search.attempts %></span></a>
+          <a href="<%= search_term_duplicate_path(previous_search.recent_id) %>"><%= previous_search.term %>
+            <span><%= previous_search.attempts %></span></a>
         </li>
       <% end %>
     </ul>

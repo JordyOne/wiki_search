@@ -42,8 +42,14 @@ class SearchTermsController < ApplicationController
   end
 
   def find_previous_terms
-    SearchTermFinder.get_uniq_with_count.map do |unique_search_term|
+    search_presenters = SearchTermFinder.get_uniq_with_count.map do |unique_search_term|
       SearchTermPresenter.new(term: unique_search_term[0], attempts: unique_search_term[1])
     end
+    reorder_presenters(search_presenters: search_presenters, sort_by: params[:sortby])
+  end
+
+  def reorder_presenters(search_presenters:, sort_by:)
+    return search_presenters if sort_by.nil?
+    search_presenters.sort! { |x,y| y.send(sort_by) <=> x.send(sort_by) }
   end
 end
