@@ -1,0 +1,5 @@
+example_id                                               | status | run_time        |
+-------------------------------------------------------- | ------ | --------------- |
+./spec/controllers/search_term_controller_spec.rb[1:1:1] | failed | 0.02863 seconds |
+./spec/models/search_term_spec.rb[1:1]                   | passed | 0.0009 seconds  |
+./spec/models/search_term_spec.rb[1:2]                   | passed | 0.01408 seconds |
