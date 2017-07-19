@@ -1,6 +1,7 @@
 class SearchTermsController < ApplicationController
   def new
     @search_term = SearchTerm.new
+    @sort_by = params[:sortby]
     @previous_search_terms = find_previous_terms
   end
 
@@ -25,6 +26,7 @@ class SearchTermsController < ApplicationController
 
   def show
     @search_term = SearchTerm.find(params[:id])
+    @sort_by = params[:sortby]
     @previous_search_terms = find_previous_terms
     @previous_runtimes = find_duplicate_runtimes
     @content = JSON.parse(WikipediaSearch.search(term: @search_term.term), symbolize: true)["query"]["search"]
@@ -45,7 +47,7 @@ class SearchTermsController < ApplicationController
     search_presenters = SearchTermFinder.get_uniq_with_count.map do |unique_search_term|
       SearchTermPresenter.new(term: unique_search_term[0], attempts: unique_search_term[1])
     end
-    reorder_presenters(search_presenters: search_presenters, sort_by: params[:sortby])
+    reorder_presenters(search_presenters: search_presenters, sort_by: @sort_by)
   end
 
   def reorder_presenters(search_presenters:, sort_by:)

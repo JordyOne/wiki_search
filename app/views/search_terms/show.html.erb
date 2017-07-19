@@ -16,7 +16,11 @@
           <option value="<%= search_term_path(@search_term, sortby: "attempts") %>"># of Attempts</option>
           <option value="<%= search_term_path(@search_term, sortby: "term") %>">Search Term</option>
         </select>
+        <% if @sort_by %>
+          <h5>currently sorting by: <%= @sort_by %></h5>
+        <% end %>
       </li>
+      <hr>
       <% @previous_search_terms.each do |previous_search| %>
         <li>
           <a href="<%= search_term_duplicate_path(previous_search.recent_id) %>"><%= previous_search.term %>
