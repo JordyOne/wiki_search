@@ -1,0 +1,13 @@
+<% if search_term.errors.any? %>
+  <ul>
+    <% search_term.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for search_term do |f| %>
+  <%= f.label :term %>
+  <%= f.text_field :term %>
+  <%= f.submit "Search" %>
+<% end %>

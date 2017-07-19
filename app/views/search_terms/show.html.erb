@@ -1,1 +1,3 @@
 <h1><%= @search_term.term %></h1>
+
+<%= render partial: "search_form", locals: { search_term: @new_search_term } %>
