@@ -26,6 +26,7 @@ class SearchTermsController < ApplicationController
   def show
     @search_term = SearchTerm.find(params[:id])
     @previous_search_terms = find_previous_terms
+    @previous_runtimes = find_duplicate_runtimes
     @content = JSON.parse(WikipediaSearch.search(term: @search_term.term), symbolize: true)["query"]["search"]
     @new_search_term = SearchTerm.new
   end
@@ -34,6 +35,10 @@ class SearchTermsController < ApplicationController
 
   def search_term_params
     params.require(:search_term).permit(:term, :id)
+  end
+
+  def find_duplicate_runtimes
+    SearchTerm.where(term: @search_term.term).order(created_at: :desc).map(&:created_at)
   end
 
   def find_previous_terms
