@@ -14,6 +14,9 @@ class SearchTermsController < ApplicationController
 
   def show
     @search_term = SearchTerm.find(params[:id])
+    @previous_search_terms = SearchTermFinder.get_uniq_with_count.map do |unique_search_term|
+      SearchTermPresenter.new(term: unique_search_term[0], attempts: unique_search_term[1])
+    end
     @new_search_term = SearchTerm.new
   end
 
