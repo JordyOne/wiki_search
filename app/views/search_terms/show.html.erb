@@ -8,13 +8,15 @@
       </li>
       <hr>
       <li class="sidebar-title">
-        <h4>Previous Searches</h4>
+        <h4>Search History</h4>
       </li>
-      <select name="sortby" onchange="location = this.value;">
-        <option value="<%= search_term_path(@search_term, sortby: "created_at") %>">Created At</option>
-        <option value="<%= search_term_path(@search_term, sortby: "attempts") %>"># of Attempts</option>
-        <option value="<%= search_term_path(@search_term, sortby: "term") %>">Search Term</option>
-      </select>
+      <li>
+        <select name="sortby" onchange="location = this.value;">
+          <option value="<%= search_term_path(@search_term, sortby: "created_at") %>">Created At</option>
+          <option value="<%= search_term_path(@search_term, sortby: "attempts") %>"># of Attempts</option>
+          <option value="<%= search_term_path(@search_term, sortby: "term") %>">Search Term</option>
+        </select>
+      </li>
       <% @previous_search_terms.each do |previous_search| %>
         <li>
           <a href="<%= search_term_duplicate_path(previous_search.recent_id) %>"><%= previous_search.term %>
@@ -35,7 +37,7 @@
       <hr>
       <div class="row">
         <div class="col-lg-12">
-          <h1>History</h1>
+          <h1>Past Information</h1>
           <hr>
           <ul>
             <% @previous_runtimes.each do |runtime| %>

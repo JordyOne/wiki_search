@@ -1,41 +1,49 @@
-.sidebar-nav {
+#sidebar-wrapper {
+    height: 100%;
+    background-color: lightgray;
+}
+
+
+#sidebar-wrapper > .sidebar-nav {
     z-index: 99;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 250px;
     margin: 0;
     padding: 0;
     list-style: none;
-    background-color: lightgray;
     height: 100%;
+    background-color: lightgray;
+
 }
 
-.sidebar-nav li {
+#sidebar-wrapper > .sidebar-nav li {
     text-indent: 20px;
     line-height: 40px;
 }
 
-.sidebar-nav li a {
+#sidebar-wrapper > .sidebar-nav li a {
     display: block;
     text-decoration: none;
     color: black;
 }
 
-.sidebar-nav > .sidebar-brand {
+#sidebar-wrapper > .sidebar-nav > .sidebar-brand {
     height: 65px;
     font-size: 18px;
     line-height: 60px;
 }
 
-.sidebar-nav > .sidebar-title {
+#sidebar-wrapper > .sidebar-nav > .sidebar-title {
     height: 40px;
     font-size: 18px;
     line-height: 60px;
 }
 
-.sidebar-nav > .sidebar-brand a {
+#sidebar-wrapper > .sidebar-nav > .sidebar-brand a {
     color: black;
 }
+
 
 #page-content-wrapper {
     width: 100%;

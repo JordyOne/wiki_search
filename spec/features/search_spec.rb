@@ -34,7 +34,8 @@ feature "Search", :type => :feature do
 
 
       within("#sidebar-wrapper") do
-        expect(page).to have_selector(".sidebar-brand a", text: "Previous Searches")
+        expect(page).to have_selector(".sidebar-brand a", text: "Home")
+        expect(page).to have_selector(".sidebar-title h4", text: "Search History")
         expect(page).to have_link("#{search_term_1.term}", href: search_term_duplicate_path(dup_term_2))
         expect(page).to have_link(search_term_3.term, href: search_term_duplicate_path(search_term_3))
         expect(page).to have_link(search_term_4.term, href: search_term_duplicate_path(search_term_4))

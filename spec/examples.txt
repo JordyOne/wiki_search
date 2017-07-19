@@ -1,18 +1,18 @@
 example_id                                                  | status | run_time        |
 ----------------------------------------------------------- | ------ | --------------- |
-./spec/controllers/search_terms_controller_spec.rb[1:1:1]   | passed | 0.03378 seconds |
-./spec/controllers/search_terms_controller_spec.rb[1:2:1]   | passed | 0.01495 seconds |
-./spec/controllers/search_terms_controller_spec.rb[1:3:1:1] | passed | 0.0209 seconds  |
-./spec/controllers/search_terms_controller_spec.rb[1:4:1:1] | passed | 0.38864 seconds |
-./spec/controllers/search_terms_controller_spec.rb[1:4:1:2] | passed | 0.42302 seconds |
-./spec/controllers/search_terms_controller_spec.rb[1:4:1:3] | passed | 0.36542 seconds |
-./spec/features/search_spec.rb[1:1]                         | passed | 0.37527 seconds |
-./spec/features/search_spec.rb[1:2]                         | passed | 0.94041 seconds |
-./spec/features/search_spec.rb[1:3:1]                       | passed | 0.03629 seconds |
-./spec/finders/search_term_finder_spec.rb[1:1:1]            | passed | 0.00927 seconds |
-./spec/finders/search_term_finder_spec.rb[1:2:1]            | passed | 0.00769 seconds |
-./spec/models/search_term_spec.rb[1:1]                      | passed | 0.00082 seconds |
-./spec/models/search_term_spec.rb[1:2]                      | passed | 0.00118 seconds |
-./spec/presenters/search_term_presenter_spec.rb[1:1]        | passed | 0.00125 seconds |
-./spec/presenters/search_term_presenter_spec.rb[1:2]        | passed | 0.00123 seconds |
-./spec/presenters/search_term_presenter_spec.rb[1:3]        | passed | 0.00264 seconds |
+./spec/controllers/search_terms_controller_spec.rb[1:1:1]   | passed | 0.00559 seconds |
+./spec/controllers/search_terms_controller_spec.rb[1:2:1]   | passed | 0.01433 seconds |
+./spec/controllers/search_terms_controller_spec.rb[1:3:1:1] | passed | 0.01786 seconds |
+./spec/controllers/search_terms_controller_spec.rb[1:4:1:1] | passed | 0.32446 seconds |
+./spec/controllers/search_terms_controller_spec.rb[1:4:1:2] | passed | 0.39798 seconds |
+./spec/controllers/search_terms_controller_spec.rb[1:4:1:3] | passed | 0.39501 seconds |
+./spec/features/search_spec.rb[1:1]                         | passed | 0.41193 seconds |
+./spec/features/search_spec.rb[1:2]                         | passed | 0.94474 seconds |
+./spec/features/search_spec.rb[1:3:1]                       | passed | 0.04032 seconds |
+./spec/finders/search_term_finder_spec.rb[1:1:1]            | passed | 0.00761 seconds |
+./spec/finders/search_term_finder_spec.rb[1:2:1]            | passed | 0.00831 seconds |
+./spec/models/search_term_spec.rb[1:1]                      | passed | 0.00105 seconds |
+./spec/models/search_term_spec.rb[1:2]                      | passed | 0.00126 seconds |
+./spec/presenters/search_term_presenter_spec.rb[1:1]        | passed | 0.00283 seconds |
+./spec/presenters/search_term_presenter_spec.rb[1:2]        | passed | 0.01767 seconds |
+./spec/presenters/search_term_presenter_spec.rb[1:3]        | passed | 0.00327 seconds |
