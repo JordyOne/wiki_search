@@ -4,13 +4,14 @@
     <ul class="sidebar-nav">
       <li class="sidebar-brand">
         <a href="<%= root_path %>">
-          Previous Searches
+          <h3>Previous Searches</h3>
         </a>
       </li>
+      <hr>
 
       <% @previous_search_terms.each do |previous_search| %>
         <li>
-          <a href="<%= search_term_path(previous_search.recent_id) %>"><%= previous_search.term %> <span><%= previous_search.attempts %></span></a>
+          <a href="<%= search_term_duplicate_path(previous_search.recent_id) %>"><%= previous_search.term %> <span><%= previous_search.attempts %></span></a>
         </li>
       <% end %>
     </ul>

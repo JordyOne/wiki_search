@@ -6,7 +6,7 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    background-color: gray;
+    background-color: lightgray;
     height: 100%;
 }
 
@@ -23,6 +23,12 @@
 
 .sidebar-nav > .sidebar-brand {
     height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-title {
+    height: 40px;
     font-size: 18px;
     line-height: 60px;
 }

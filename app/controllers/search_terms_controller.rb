@@ -1,6 +1,7 @@
 class SearchTermsController < ApplicationController
   def new
     @search_term = SearchTerm.new
+    @previous_search_terms = find_previous_terms
   end
 
   def create
@@ -8,17 +9,24 @@ class SearchTermsController < ApplicationController
     if @search_term.save
       redirect_to search_term_path(@search_term)
     else
+      @previous_search_terms = find_previous_terms
       render :new
+    end
+  end
+
+  def duplicate
+    @new_search_term = SearchTerm.find(params[:search_term_id]).dup
+    if @new_search_term.save
+      redirect_to search_term_path(@new_search_term)
+    else
+      render :show
     end
   end
 
   def show
     @search_term = SearchTerm.find(params[:id])
-    @previous_search_terms = SearchTermFinder.get_uniq_with_count.map do |unique_search_term|
-      SearchTermPresenter.new(term: unique_search_term[0], attempts: unique_search_term[1])
-    end
+    @previous_search_terms = find_previous_terms
     @content = JSON.parse(WikipediaSearch.search(term: @search_term.term), symbolize: true)["query"]["search"]
-    byebug
     @new_search_term = SearchTerm.new
   end
 
@@ -26,5 +34,11 @@ class SearchTermsController < ApplicationController
 
   def search_term_params
     params.require(:search_term).permit(:term, :id)
+  end
+
+  def find_previous_terms
+    SearchTermFinder.get_uniq_with_count.map do |unique_search_term|
+      SearchTermPresenter.new(term: unique_search_term[0], attempts: unique_search_term[1])
+    end
   end
 end

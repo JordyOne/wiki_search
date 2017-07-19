@@ -29,15 +29,15 @@ feature "Search", :type => :feature do
       dup_term_2 = SearchTerm.create(term: "Test search 1")
       search_term_3 = SearchTerm.create(term: "Test search 3")
       search_term_4 = SearchTerm.create(term: "Test search 4")
-      expect(WikipediaSearch).to receive(:search) { JSON.generate({ "query": { "search": [{ 'snippet': '<span>response snippet</span>' }, { 'snippet': '<span>another response snippet</span>' }] } }) }
+      expect(WikipediaSearch).to receive(:search) { JSON.generate({ query: { search: [{ snippet: '<span>response snippet</span>' }, { snippet: '<span>another response snippet</span>' }] } }) }
       visit search_term_path(search_term_1)
 
 
       within("#sidebar-wrapper") do
         expect(page).to have_selector(".sidebar-brand a", text: "Previous Searches")
-        expect(page).to have_link("#{search_term_1.term}", href: search_term_path(dup_term_2))
-        expect(page).to have_link(search_term_3.term, href: search_term_path(search_term_3))
-        expect(page).to have_link(search_term_4.term, href: search_term_path(search_term_4))
+        expect(page).to have_link("#{search_term_1.term}", href: search_term_duplicate_path(dup_term_2))
+        expect(page).to have_link(search_term_3.term, href: search_term_duplicate_path(search_term_3))
+        expect(page).to have_link(search_term_4.term, href: search_term_duplicate_path(search_term_4))
       end
 
       within("#page-content-wrapper") do
