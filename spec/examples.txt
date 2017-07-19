@@ -1,6 +1,7 @@
 example_id                                                  | status | run_time        |
 ----------------------------------------------------------- | ------ | --------------- |
-./spec/controllers/search_terms_controller_spec.rb[1:1:1]   | passed | 0.01268 seconds |
-./spec/controllers/search_terms_controller_spec.rb[1:2:1:1] | passed | 0.01099 seconds |
-./spec/models/search_term_spec.rb[1:1]                      | passed | 0.00076 seconds |
-./spec/models/search_term_spec.rb[1:2]                      | passed | 0.01258 seconds |
+./spec/controllers/search_terms_controller_spec.rb[1:1:1]   | passed | 0.009 seconds   |
+./spec/controllers/search_terms_controller_spec.rb[1:2:1:1] | passed | 0.00587 seconds |
+./spec/features/search_spec.rb[1:1]                         | passed | 0.20507 seconds |
+./spec/models/search_term_spec.rb[1:1]                      | passed | 0.00107 seconds |
+./spec/models/search_term_spec.rb[1:2]                      | passed | 0.01255 seconds |
